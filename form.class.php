@@ -7,10 +7,16 @@ class Form {
         $this->action = $action;
         $this->shape = isset($_GET["action"]) ? $_GET["action"] : "rect";
     }    
-    
+    /*魔术内置方法__toString(),通过用户不同的请求，返回用户需要的表单字符串，在页面中显示*/ 
     function __tostring() {
         $form='<form action="'.$this->action.'?action='.$this->shape.'"method="post">';
         
+        $shape = "get".ucfirst($this->shape);
+        $form .= $this->shape();
+
+        $form .= '<br><input type="submit" name="sub" value="计算"><br>';
+        $form .= '</form>';
+        return $form;
     }
 
     private function getRect() {
@@ -28,7 +34,11 @@ class Form {
         return $input;
     }
 
-
-
+    private function getCircle() {
+        $input = '<b>请输入 | 圆形 |的半径：</b><p>';
+        $input .= '半径：<input type="text" name="radius" value="'.$_POST["radius"].'"><br>';
+        return $input;
+    }
 
 }
+?>

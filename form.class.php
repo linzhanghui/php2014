@@ -20,4 +20,15 @@ class Form {
         return $input;
     }
 
+    private function getTriangle() {
+        $input = '<b>请输入 | 三角形的 三条边：</b><p>';
+        $input .= '第一边：<input type="text" name="side1" value="'.$_POST["side1"].'"><br>';
+        $input .= '第二边：<input type="text" name="side2" value="'.$_POST["side2"].'"><br>';
+        $input .= '第三边：<input type="text" name="side3" value="'.$_POST["side3"].'"><br>';
+        return $input;
+    }
+
+
+
+
 }

@@ -29,7 +29,42 @@ if(isset($_POST["num1"])&&isset($_POST["num2"])){
     <caption><h2>简单计算机</h2></caption>
     <tr>
     <td><input type="text" size="10" name="num1" value="<?php if(!empty($num1)) echo $num1; ?>"></td>
-    
+    <td><select name="oper">
+
+    <option value="+"<?php
+if($_POST["oper"]=="+")
+    echo "selected";
+?>>+</option>
+
+    <option value="-"<?php
+if($_POST["oper"]=="-")
+    echo "selected";
+?>>-</option>
+
+    <option value="*"<?php
+if($_POST["oper"]=="*")
+    echo "selected";
+?>>*</option>
+
+    <option value="/"<?php
+if($_POST["oper"]=="/")
+    echo "selected";
+?>>/</option>
+
+    <option value="%"<?php
+if($_POST["oper"]=="%")
+    echo "selected";
+?>>%</option>
+
+    </select>
+    </td>
+
+    <td><input type="text" size="10" name="num2" value="<?php if(!empty($num2)) echo $num2; ?>"></td>
+    <td><input type="submit" name="sub" value="计算"></td>
+    </tr>
+
+
+
 
 </body>
 </html>

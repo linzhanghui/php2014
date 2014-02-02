@@ -25,7 +25,7 @@ if(isset($_POST["num1"])&&isset($_POST["num2"])){
 }
 ?>
 <table border="1" align="center" width="400">
-    <form action="" method="post">
+    <form action=" " method="post">
     <caption><h2>简单计算机</h2></caption>
     <tr>
     <td><input type="text" size="10" name="num1" value="<?php if(!empty($num1)) echo $num1; ?>"></td>
@@ -85,6 +85,9 @@ if(isset($_POST["sub"])&&!empty($_POST["sub"])){
     }
 
 }
+echo "<tr><td colspan='4' align='center'>";
+echo "计算结果：$num1 $oper $num2 = $sum";
+echo "</td></tr>";
 ?>
 
 </body>

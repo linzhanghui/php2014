@@ -31,29 +31,29 @@ if(isset($_POST["num1"])&&isset($_POST["num2"])){
     <td><input type="text" size="10" name="num1" value="<?php if(!empty($num1)) echo $num1; ?>"></td>
     <td><select name="oper">
 
-    <option value="+"<?php
-if($_POST["oper"]=="+")
+    <option value="+" <?php
+if($oper == "+")
     echo "selected";
 ?>>+</option>
 
-    <option value="-"<?php
+    <option value="-" <?php
 if($_POST["oper"]=="-")
     echo "selected";
 ?>>-</option>
 
-    <option value="*"<?php
+    <option value="*" <?php
 if($_POST["oper"]=="*")
     echo "selected";
 ?>>*</option>
 
-    <option value="/"<?php
+    <option value="/" <?php
 if($_POST["oper"]=="/")
     echo "selected";
 ?>>/</option>
 
-    <option value="%"<?php
+    <option value="%" <?php
 if($_POST["oper"]=="%")
-    echo "selected";
+    echo " selected";
 ?>>%</option>
 
     </select>
@@ -63,8 +63,29 @@ if($_POST["oper"]=="%")
     <td><input type="submit" name="sub" value="计算"></td>
     </tr>
 
+<?php
+if(isset($_POST["sub"])&&!empty($_POST["sub"])){
+    $sum = 0;
+    switch($oper) {
+        case "+";
+            $sum=$num1+$num2;
+            break;
+        case "-";
+            $sum=$num1-$num2;
+            break;
+        case "*";
+            $sum=$num1*$num2;
+            break;
+            case "/";
+            $sum=$num1/$num2;
+            break;
+            case "%";
+            $sum=$num1%$num2;
+            break;        
+    }
 
-
+}
+?>
 
 </body>
 </html>

@@ -8,6 +8,23 @@ if(isset($_POST["sub"])){
     $message=$_POST["username"]."||".$_POST["title"]."||".$_POST["mess"]."<|>";
     writeMessage($filename,$message);
 }
+
+if(file_exists($filename))
+    readMessage($filename);
+
+function writeMessage($filename,$message) {
+    $fp = fopen($filename, "a");
+    if(flock($fp,LOCK_EX)){
+        fwrite($fp,$message);
+        flock($fp,LOCK_UN);
+    } else {
+        echo "不能锁定文件";
+    }
+    fclose($fp);
+}
+function readMessage($filename) {
+    $fp = fopen($filename,"r");
+}
 ?>
 
         <form action="" method="post">

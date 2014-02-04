@@ -24,6 +24,22 @@ function writeMessage($filename,$message) {
 }
 function readMessage($filename) {
     $fp = fopen($filename,"r");
+    flock($fp,LOCK_SH);
+    $buffer="";
+    while(!feof($fp)){
+        $buffer=fread($fp,1024);
+    }
+    $data=explode("<|>",$buffer);
+    foreach($data as $line) {
+        list($username,$title,$message) = explode("||",$line);
+        if($username!="" && $title!="" && $message!=""){
+            echo $username. '说:';
+            echo '&nbsp;'.$title.',';
+            echo $message."<hr>";
+        }
+    }
+    flock($fp,LOCK_UN);
+    fclose($fp);
 }
 ?>
 

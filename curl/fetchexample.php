@@ -6,5 +6,5 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $output = curl_exec($ch);
 echo htmlspecialchars($output);
 curl_close($ch);
-
+//test
 ?>

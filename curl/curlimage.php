@@ -7,7 +7,7 @@ curl_setopt($ch, CURLOPT_URL, $pic);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,10);
 curl_setopt($ch, CURLOPT_TIMEOUT,30);
-
+//test
 $imageData = curl_exec($ch);
 curl_close($ch);
 

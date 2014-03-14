@@ -12,4 +12,11 @@ echo "domain name is:{$matches[0]}\n";
 
 matchphpurl("http://www.github.com/index.html")
 
+function offsetmatch($subject){
+	$pattern = '/^def/';
+	preg_match($pattern,substr($subject,3),$matches, PREG_OFFSET_CAPTURE);
+	print_r($matches);
+}
+offsetmatch("abcdef")
+
 ?>

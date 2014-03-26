@@ -9,13 +9,31 @@ $q = mysql_query($sql);
 
 $row = mysql_fetch_array($q);
 
-echo $row[0].$row[1]."<br>";
+//echo $row[0].$row[1]."<br>";
 
-//$con = file_get_contents($row[url]);
+
+
+
+$con = file_get_contents($row[url]);
+
+
+
+echo $title = zz("#<title>(.*)</title#iUs",$con);
+echo "<br>";
+echo $content = "contentcontent content";
+
+
+
+$insertsql ="INSERT INTO `test`.`news` (`id`, `title`, `content`) VALUES (NULL, '$title', '$content');";
+mysql_query($insertsql);
+
+
 //$preg = "#<title>(.*)</title>#iUs";
+
 
 //preg_match($preg,$con,$arr);
 
+//INSERT INTO `test`.`news` (`id`, `title`, `content`) VALUES (NULL, 'title', 'content ');
 //print_r($arr);
 
 $sql2="select * from tmp_url where id>'$gid' order by id asc limit 1";
